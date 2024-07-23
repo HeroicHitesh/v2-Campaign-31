@@ -2,9 +2,9 @@
 
 ## Introduction
 
-- Protocol Name: Name of the protocol.
-- Category: Specify whether it is AI, RWA Tokenization, or DeFi.
-- Smart Contract: Provide the name of the smart contract you are analyzing.
+- Protocol Name: Uniswap V2
+- Category: DeFi
+- Smart Contract: UniswapV2Pair
 
 ## Function Analysis
 
