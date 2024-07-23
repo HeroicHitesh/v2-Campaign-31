@@ -27,7 +27,7 @@ function _safeTransfer(address token, address to, uint value) private {
 
 ## Explanation
 
-- Purpose: ERC20 tokens can be securely transferred from the UniswapV2Pair contract to a designated address using the `_safeTransfer` function. This function ensures tokens be transferred reliably during swaps or liquidity provision operations, making it a crucial utility function of the contract.
+- Purpose: ERC20 tokens can be securely transferred from the UniswapV2Pair contract to a designated address using the `_safeTransfer` function. This function ensures tokens be transferred reliably during swaps or liquidity provision operations, making it a crucial utility function of the contract. The [`swap`](https://etherscan.io/address/0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc#code#L458) function, which interacts with external contracts, checks the success of these operations, ensuring the integrity and security of the token transfers within the Uniswap V2 protocol.
 - Detailed Usage:
     - Encoding: The call data for the `transfer` function of an ERC20 token is encoded by the function using `abi.encodeWithSelector`. This generates the proper function signature that the `call` method requires, using the supplied parameters (`to` and `value`).
     - Calling: Calling: To deliver the encoded data to the ERC20 contract, a low-level call is made using the `call` function. By avoiding Solidity's function call limitations, this approach offers greater control and flexibility, but it must be used carefully to guarantee safety.
