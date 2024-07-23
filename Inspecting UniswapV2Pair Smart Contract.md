@@ -27,6 +27,6 @@ function _safeTransfer(address token, address to, uint value) private {
 
 ## Explanation
 
-- Purpose: Explain the purpose of the function within the contract.
+- Purpose: ERC20 tokens can be securely transferred from the UniswapV2Pair contract to a designated address using the `_safeTransfer` function. This function ensures tokens be transferred reliably during swaps or liquidity provision operations, making it a crucial utility function of the contract.
 - Detailed Usage: Describe how the function utilizes the encoding/decoding or high/low level call. Explain why this method is used and what it achieves.
 - Impact: Discuss the impact of this function on the smart contract. How does it contribute to the smart contract’s functionality within the protocol?
