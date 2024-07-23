@@ -8,10 +8,22 @@
 
 ## Function Analysis
 
-- Function Name: Name of the function you are focusing on.
-- Block Explorer Link: Provide the URL to a block explorer displaying the contract source code
-- Function Code: Provide the relevant code snippet that includes the function.
-- Used Encoding/Decoding or Call Method: Specify which of the allowed functions (abi.encode, abi.encodePacked, abi.encodeWithSelector, abi.encodeWithSignature, abi.decode, call, delegateCall, staticCall) is used.
+- Function Name: `_safeTransfer`
+- Block Explorer Link: https://etherscan.io/address/0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc#code
+- Function Code:
+
+Refer - https://etherscan.io/address/0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc#code#L343
+
+```solidity
+bytes4 private constant SELECTOR = bytes4(keccak256(bytes('transfer(address,uint256)')));
+
+function _safeTransfer(address token, address to, uint value) private {
+    (bool success, bytes memory data) = token.call(abi.encodeWithSelector(SELECTOR, to, value));
+    require(success && (data.length == 0 || abi.decode(data, (bool))), 'UniswapV2: TRANSFER_FAILED');
+}
+```
+
+- Used Encoding/Decoding or Call Method: `abi.encodeWithSelector`, `abi.decode`, `call` is used.
 
 ## Explanation
 
